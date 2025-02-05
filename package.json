@@ -1,0 +1,19 @@
+{
+  "name": "api-serverst-cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^13.6.6"
+  },
+  "dependencies": {
+    "cypress-plugin-api": "^2.11.2"
+  }
+}
