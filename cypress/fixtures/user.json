@@ -110,5 +110,38 @@
         }
       ]
     }
+  },
+  "delete": {
+    "success": {
+      "nome": "Bruno Santos",
+      "email": "brunosantos@email.com",
+      "password": "Senha456",
+      "administrador": "false"
+    },
+    "fail": {
+      "not_found": {
+        "id": "123"
+      },
+      "has_cart": {
+        "user": {
+          "nome": "Daniela Costa",
+          "email": "danielacosta@user.com",
+          "password": "Senha1213",
+          "administrador": "true"
+        },
+        "product": {
+          "nome": "Livro de ficção científica",
+          "preco": 40.00,
+          "descricao": "Livro de ficção científica com 300 páginas",
+          "quantidade": 5
+        },
+        "items": [
+          {
+            "nome": "Livro de ficção científica",
+            "quantidade": 3
+          }
+        ]
+      }
+    }
   }
 }
