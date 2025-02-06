@@ -14,26 +14,39 @@ describe('GET /usuarios', () => {
     });
   });
 
-  it('deve filtrar usuários pelo nome', () => {
+  it.only('deve filtrar usuários pelo nome', () => {
     const user = userData.success.admin;
 
-    cy.listUserByName(user.nome).then((response) => {
-      expect(response.status).to.equal(200);
+    cy.listUserByName(user.nome).then((userId) => {
+      if (userId) {
+        cy.deleteUserById(userId);
+      }
+    });
 
-      const { quantidade, usuarios } = response.body;
+    cy.insertUser(user).then(() => {
 
-      expect(usuarios).to.be.an('array');
-      expect(quantidade).to.equal(usuarios.length);
-      expect(usuarios).to.have.length(1);
+      cy.listUserByName(user.nome).then((response) => {
+        expect(response.status).to.equal(200);
 
-      const usuario = usuarios[0];
+        const { quantidade, usuarios } = response.body;
 
-      expect(usuario).to.have.property('nome', user.nome);
-      expect(usuario).to.have.property('email', user.email);
-      expect(usuario).to.have.property('password', user.password);
-      expect(usuario).to.have.property('administrador', user.administrador);
-      expect(usuario).to.have.property('_id').that.is.a('string').and.not.be.empty;
+        expect(usuarios).to.be.an('array');
+        expect(quantidade).to.equal(usuarios.length);
+        expect(usuarios).to.have.length(1);
 
+        const usuario = usuarios[0];
+
+        expect(usuario).to.have.property('nome', user.nome);
+        expect(usuario).to.have.property('email', user.email);
+        expect(usuario).to.have.property('password', user.password);
+        expect(usuario).to.have.property('administrador', user.administrador);
+        expect(usuario).to.have.property('_id').that.is.a('string').and.not.be.empty;
+      });
+
+      cy.listUserByName(user.nome).then((userId) => {
+        cy.deleteUserById(userId);
+      });
     });
   });
+
 });

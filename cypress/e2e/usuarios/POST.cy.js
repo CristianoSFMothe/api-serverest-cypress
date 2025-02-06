@@ -9,11 +9,12 @@ describe('POST /usuarios', () => {
   })
 
   it('deve cadastrar usuário administrador com sucesso', () => {
-    const user = userData.success.admin
+    const user = userData.success.admin;
+    cy.deleteUser(user);
 
     cy.insertUser(user).then((response) => {
       expect(response.status).to.equal(201);
       expect(response.body.message).to.be.equal('Cadastro realizado com sucesso');
-    })
+    });
   })
 })
