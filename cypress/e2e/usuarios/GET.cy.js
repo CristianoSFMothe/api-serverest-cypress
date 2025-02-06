@@ -14,7 +14,7 @@ describe('GET /usuarios', () => {
     });
   });
 
-  it.only('deve filtrar usuários pelo nome', () => {
+  it('deve filtrar usuários pelo nome', () => {
     const user = userData.success.admin;
 
     cy.listUserByName(user.nome).then((userId) => {

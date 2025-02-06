@@ -6,7 +6,39 @@
         "email": "crisitano@qa.com.br",
         "password": "Abc@123",
         "administrador": "true"
+      },
+      "not_admin": {
+        "nome": "Aline Mote",
+        "email": "aline@user.com.br",
+        "password": "Abc@123",
+        "administrador": "false"
       }
-    }
+    },
+    "duplicated": {
+      "nome": "Mariana Silva",
+      "email": "marianasilva@email.com",
+      "password": "Senha123",
+      "administrador": "false"
+    },
+    "invalid": [
+      {
+        "nome": "",
+        "email": "marciobarbosa@email.com",
+        "password": "Senha1011",
+        "administrador": "false"
+      },
+      {
+        "nome": "Pedro Santos",
+        "email": "pedrosantos",
+        "password": "Senha1213",
+        "administrador": "false"
+      },
+      {
+        "nome": "Rafael Costa",
+        "email": "rafaelcosta@email.com",
+        "password": "",
+        "administrador": "false"
+      }
+    ]
   }
 }
