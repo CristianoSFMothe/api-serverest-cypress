@@ -184,7 +184,7 @@ curl --request DELETE \
 
 ### Usuários
 
-1. Cadastar usuários
+1. Cadastrar usuários
 
 ```javascript
 describe("POST /usuarios", () => {
@@ -228,7 +228,7 @@ import './commands'
 import 'cypress-plugin-api'
 ```
 
-3. Alteraração no código para utilizar o `cypress-plugin-api` no lugar do `request`
+3. Alteração no código para utilizar o `cypress-plugin-api` no lugar do `request`
 
 ```bash
 it('deve cadastrar usuário com sucesso', () => {
