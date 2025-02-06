@@ -54,3 +54,14 @@ Cypress.Commands.add('deleteUserById', (id) => {
     return response
   })
 });
+
+Cypress.Commands.add('updateUser', (id, data) => {
+  cy.api({
+    url: `/usuarios/${id}`,
+    method: "PUT",
+    body: data,
+    failOnStatusCode: false
+  }).then((response) => {
+    return response
+  })
+});
