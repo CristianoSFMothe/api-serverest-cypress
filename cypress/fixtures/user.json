@@ -1,0 +1,12 @@
+{
+  "create": {
+    "success": {
+      "admin": {
+        "nome": "Cristiano Ferreira",
+        "email": "crisitano@qa.com.br",
+        "password": "Abc@123",
+        "administrador": "true"
+      }
+    }
+  }
+}

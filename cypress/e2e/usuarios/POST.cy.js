@@ -1,19 +1,17 @@
 describe('POST /usuarios', () => {
 
-  const user = {
-    nome: "Cristiano Ferreira",
-    email: "crisitano@qa.com.br",
-    password: "Abc@123",
-    administrador: "true"
-  }
+  let userData
 
-  it('deve cadastrar usuário com sucesso', () => {
-    cy.api({
-      url: '/usuarios',
-      method: 'POST',
-      body: user,
-      failOnStatusCode: false
-    }).then((response) => {
+  beforeEach(() => {
+    cy.fixture("user").then((data) => {
+      userData = data.create
+    })
+  })
+
+  it('deve cadastrar usuário administrador com sucesso', () => {
+    const user = userData.success.admin
+
+    cy.insertUser(user).then((response) => {
       expect(response.status).to.equal(201);
       expect(response.body.message).to.be.equal('Cadastro realizado com sucesso');
     })
