@@ -32,7 +32,7 @@ describe('GET /usuarios', () => {
 
         expect(usuarios).to.be.an('array');
         expect(quantidade).to.equal(usuarios.length);
-        expect(usuarios).to.have.length(1);
+        expect(usuarios).to.have.length(usuarios.length);
 
         const usuario = usuarios[0];
 

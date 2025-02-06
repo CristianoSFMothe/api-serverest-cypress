@@ -65,3 +65,9 @@ Cypress.Commands.add('updateUser', (id, data) => {
     return response
   })
 });
+
+Cypress.Commands.add('insertUsers', (users) => {
+  for (const user of users) {
+    cy.insertUser(user);
+  }
+})
