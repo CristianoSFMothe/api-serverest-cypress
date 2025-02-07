@@ -17,7 +17,7 @@ describe('DELETE /carrinhos', () => {
     })
   })
 
-  it.only('deve cancelar um carrinho e devolver os produtos ao estoque', () => {
+  it('deve cancelar um carrinho e devolver os produtos ao estoque', () => {
     const cart = cartData.cancel.data.cart;
     cy.insertUser(cart.user);
     cy.login({
@@ -58,7 +58,7 @@ describe('DELETE /carrinhos', () => {
         expect(response.status).to.be.equal(200);
         expect(response.body)
           .to.have
-          .property('message', 'não foi encontrado carrinho para esse usuário');
+          .property('message', 'Não foi encontrado carrinho para esse usuário');
       });
     });
   })
@@ -103,7 +103,7 @@ describe('DELETE /carrinhos', () => {
         expect(response.status).to.be.equal(200);
         expect(response.body)
           .to.have
-          .property('message', 'não foi encontrado carrinho para esse usuário');
+          .property('message', 'Não foi encontrado carrinho para esse usuário');
       });
     });
   })

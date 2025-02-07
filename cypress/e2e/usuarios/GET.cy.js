@@ -17,11 +17,7 @@ describe('GET /usuarios', () => {
   it('deve filtrar usuários pelo nome', () => {
     const user = userData.success.admin;
 
-    cy.listUserByName(user.nome).then((userId) => {
-      if (userId) {
-        cy.deleteUserById(userId);
-      }
-    });
+    cy.deleteUserById(user);
 
     cy.insertUser(user).then(() => {
 
